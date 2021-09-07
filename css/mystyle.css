@@ -1,0 +1,84 @@
+/*menu.php*/
+
+.name-customer-menu {
+    color: white;
+    background-color: #006bdd;
+    padding: 0 1rem 0 1rem;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+}
+
+
+/*--------------- vegetable/index --------------*/
+
+.leftpanel {
+    width: 20%;
+    background-color: rgba(231, 231, 231, 0.733);
+    height: auto;
+    float: left;
+    border-radius: 1rem;
+    margin: 2% 2% 0 2%;
+    padding: 1rem;
+    padding-left: 2rem;
+    color: #0069d9;
+}
+
+.leftpanel button {
+    font-size: 32px;
+    background-color: rgb(255, 0, 0);
+    outline: none;
+    border: none;
+    color: white;
+    border-radius: 0.5rem;
+    padding: 0 25px 0 25px;
+    float: right;
+}
+
+.leftpanel label,
+input {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.rightpanel {
+    width: 70%;
+    padding-top: 2rem;
+    background-color: rgb(255, 246, 246);
+    float: right;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.order-button-cart {
+    font-size: 32px;
+    background-color: red;
+    outline: none;
+    border: none;
+    color: white;
+    border-radius: 0.5rem;
+    padding: 0 25px 0 25px;
+    float: left;
+    font-weight: 500;
+}
+
+.history-button-viewdetail {
+    background-color: rgb(23, 176, 246);
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    color: white;
+    text-decoration: none;
+}
+
+.buy-button {
+    background-color: #007bff;
+    color: white;
+    border: 0;
+    border-radius: 0.2rem;
+    font-size: 1.6rem;
+}
+
+.image-cart {
+    width: 9rem;
+    height: 9rem;
+    border-radius: 0.3rem;
+}
