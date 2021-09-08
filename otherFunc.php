@@ -1,4 +1,5 @@
 <?php
+//Display error 
 error_reporting(E_ALL); ini_set('display_errors', '1');
 //Convert number to money format
 function convertToMoney($number)
@@ -60,5 +61,25 @@ function getDataFromResultSet($rs)
     }
     return $data;
 }
+function convertStringToEnglish($dataString) {
+    $aVN = ["á", "à", "ả", "ã", "ạ", "ắ", "ằ", "ẳ", "ẵ", "ặ", "ă", "â", "ấ", "ầ", "ẩ", "ẫ", "ậ"];
+    $dVN = ["đ","Đ"];
+    $eVN = ["é", "è", "ẻ", "ẽ", "ẹ", "ê", "ế", "ề", "ể", "ễ", "ệ"];
+    $iVN = ["í", "ì", "ỉ", "ĩ", "ị"];
+    $oVN = ["ó", "ò", "ỏ", "õ", "ọ", "ô", "ố", "ồ", "ổ", "ỗ", "ộ", "ơ", "ớ", "ờ", "ở", "ỡ", "ợ"];
+    $uVN = ["ú", "ù", "ủ", "ũ", "ụ", "ư", "ứ", "ừ", "ử", "ữ", "ự"];
+    $yVN = ["ý", "ỳ", "ỷ", "ỹ", "ỵ"];
 
+    for ($i = 0; $i < strlen($dataString); $i++) {
+        $dataString = str_replace($aVN,"a",$dataString);
+        $dataString = str_replace($dVN,"d",$dataString);
+        $dataString = str_replace($eVN,"e",$dataString);
+        $dataString = str_replace($iVN,"i",$dataString);
+        $dataString = str_replace($oVN,"o",$dataString);
+        $dataString = str_replace($uVN,"u",$dataString);
+        $dataString = str_replace($yVN,"y",$dataString);
+    }
+    $dataString = str_replace(" ","",$dataString);
+    return strtolower($dataString);
+}
 ?>

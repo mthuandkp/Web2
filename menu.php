@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="./css/mystyle.css">
     <title></title>
 </head>
-
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand" style="margin-left: 1rem;font-size: 1.5rem;" href="./index.php">Market online</a>
@@ -34,5 +33,5 @@
         </div>
     </nav>
 </body>
-
 </html>
+

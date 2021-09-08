@@ -43,12 +43,24 @@
         }
     }
     //Check amount
-    if(is_int((int)$vegetable['Amount']) == false || $vegetable['Amount'] <= 0){
+    if(is_numeric($vegetable['Amount']) == false || $vegetable['Amount'] != (int)$vegetable['Amount'] || $vegetable['Amount'] <= 0){
         echo '<script>alert("Số lượng phải là số nguyên > 0");window.location.href = "./new.php";</script>';
         return;
     }
+
+    //check Exist Name
+    $data = $objVege->getAll();
+    if(!empty($data)){
+        foreach($data as $key => $value){
+            if(convertStringToEnglish($vegetable['VegetableName']) == convertStringToEnglish($value['VegetableName'])){
+                echo '<script>alert("Tên sản phẩm \"'.$vegetable['VegetableName'].'\" đã tồn tại");window.location.href = "./new.php";</script>';
+        return;
+            }
+        }
+    }
+    /**************************** */
     //Check price
-    if(is_numeric($vegetable['Price']) == false || $vegetable['Price'] <=0){
+    if(is_numeric($vegetable['Price']) == false || (int)$vegetable['Price'] != $vegetable['Price'] || $vegetable['Price'] <=0){
         echo '<script>alert("Giá tiền phải là số > 0");window.location.href = "./new.php";</script>';
         return;
     }
