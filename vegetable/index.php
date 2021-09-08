@@ -11,16 +11,23 @@ include_once('../class/category.php');
 $filterData = array();
 $isFilter = false;
 //Filter product
-if (isset($_POST['filter'])) {
+if (isset($_POST['filter']) && count($_POST) > 1) {
     $objVegetable = new vegetable;
+    $objCategory = new category;
     $filterArray = array();
+    //Get name display for filter
+    $filterContent = "Lọc theo : ";
+
     foreach ($_POST as $key => $value) {
         if (is_numeric($key)) {
             $filterArray[] = $key;
+            $filterContent .= $objCategory->getById($key)['Name'].',';
         }
     }
+    $filterContent = substr($filterContent,0,strlen($filterContent)-1);
     $filterData = $objVegetable->getListByCateIDs($filterArray);
     $isFilter = true;
+    
 }
 
 //Buy button click
@@ -106,6 +113,9 @@ if (isset($_POST['buy'])) {
             $data = $obj->getAll();
         } else {
             $data = $filterData;
+        }
+        if(isset($filterContent)){
+            echo '<h2 style="width:100%;">'.$filterContent.'</h2>';
         }
         foreach ($data as $key => $value) {
             echo '<form action="" method="post">

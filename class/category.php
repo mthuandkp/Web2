@@ -21,5 +21,11 @@
 
             return mysqli_query(getConnection(),$qry);
         }
+
+        function getById($id){
+            $qry = "SELECT * FROM `category` WHERE `CategoryID` = $id";
+            $rs = mysqli_query(getConnection(), $qry);
+            return getDataFromResultSet($rs,$qry)[0];
+        }
     }
 ?>

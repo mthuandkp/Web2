@@ -65,7 +65,7 @@
                 <div>
                 <img src="" alt="empty" id="imagePreview" style="width: 30%;">
                 </div>
-            <button type="submit" class="btn btn-primary" style="font-size: 1.5rem;">Add</button>
+            <button type="submit" class="btn btn-primary" style="font-size: 1.5rem;margin-top: 1rem;margin-bottom: 1rem;">Add</button>
         </form>
     </div>
 
