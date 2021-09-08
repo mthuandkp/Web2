@@ -60,7 +60,7 @@
     }
     /**************************** */
     //Check price
-    if(is_numeric($vegetable['Price']) == false || (int)$vegetable['Price'] != $vegetable['Price'] || $vegetable['Price'] <=0){
+    if(is_numeric($vegetable['Price']) == false || (int)$vegetable['Price'] != $vegetable['Price'] || $vegetable['Price'] <= 0){
         echo '<script>alert("Giá tiền phải là số > 0");window.location.href = "./new.php";</script>';
         return;
     }
