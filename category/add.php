@@ -16,6 +16,11 @@
     }
     $name = $_POST['name'];
     $description = $_POST['description'];
+    //Check empty
+    if($name == "" || $description == ""){
+        echo '<script>alert("Vui lòng nhập đầy đủ tên và mô tả");window.location.href = "./index.php";</script>';
+            return;
+    }
     $qry = "INSERT INTO `category`(`CategoryID`, `Name`, `Description`) VALUES ($newID,'$name','$description');";
     //Get all Category data
     $data =  $obj->getAll();
