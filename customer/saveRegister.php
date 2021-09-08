@@ -31,8 +31,12 @@ else if (strlen($pass) <= 3 || strpos($pass, ' ')) {
         'City' => $_POST['city']
     );
     if ($obj->add($cus)) {
-        $lastCusId = end($obj->getAll())['CustomerID'];
-        echo '<script>alert("Đăng ký thành công vui lòng đăng nhập, ID đăng nhập của bạn là: ' . $lastCusId . '");window.location.href = "./login.php";</script>';
+        $Id = 1;
+        $data = $obj->getAll();
+        if(!empty($data)){
+            $Id = end($data)['CustomerID'];
+        }
+        echo '<script>alert("Đăng ký thành công vui lòng đăng nhập, ID đăng nhập của bạn là: ' . $Id . '");window.location.href = "./login.php";</script>';
     } else {
         echo '<script>window.location.href = "./register.php?mess=Không thể thêm";</script>';
     }

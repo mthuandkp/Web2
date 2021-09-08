@@ -16,10 +16,11 @@ class customer
     function add($cus) {
         $obj = new customer;
         $nextId = 1;
-        $data = end($obj->getAll());
-        //Create new id if order not empty
+        $data = $obj->getAll();
         if (!empty($data)) {
-            $nextId = $data['CustomerID'] + 1;
+            $lastItem = end($data);
+            //Create new id if order not empty
+            $nextId = $lastItem['CustomerID'] + 1;
         }
         $pass = $cus['Password'];
         $name = $cus['Fullname'];

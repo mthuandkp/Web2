@@ -43,6 +43,7 @@ if (isset($_POST['buy'])) {
                 //Kiem tra so luong
                 if ($vegetable['Amount'] < $value['number'] + 1) {
                     echo '<script>alert("Không đủ số lượng");window.location.href="index.php";</script>';
+                    return;
                 }
                 $_SESSION['cart'][$key]['number'] += 1;
                 $checkExist = true;

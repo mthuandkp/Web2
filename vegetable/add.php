@@ -5,6 +5,27 @@
     include_once('../class/vegetable.php');
     //Init 'vegetable' class
     $objVege = new vegetable;
+
+    if(!isset($_FILES)){
+        echo '<script>alert("Vui lòng chọn hình ảnh cho sản phẩm");window.location.href = "./new.php";</script>';
+        return;
+    }
+    //get extension format
+    $extension = "";
+    if(isset($_FILES['image'])){
+        $extension = getExtension($_FILES['image']['name']);
+    }
+    //check extension
+    if($extension != '.jpg' && $extension != '.png'){
+        echo '<script>alert("Hình ảnh phải là jpg hoặc png");window.location.href = "./new.php";</script>';
+        return;
+    }
+    
+   //Check file size
+   if($_FILES['image']['size']/1048576.0 > 2){
+    echo '<script>alert("Kích thước hình ảnh phải <= 2mb");window.location.href = "./new.php";</script>';
+    return;
+}
     //Create new vegetable from index request
     $vegetable = array(
         'CategoryID' => $_POST['categoryid'],
@@ -17,7 +38,7 @@
     //Find empty in each data fields
     foreach($vegetable as $key=>$value){
         if(str_replace(" ","",$value) == ""){
-            echo '<script>alert("Chưa điền '.$key.'");window.location.href = "./new.php";</script>';
+            echo '<script>alert("Chưa điền '.$key.'");/*window.location.href = "./new.php";*/</script>';
             return;
         }
     }
@@ -29,18 +50,6 @@
     //Check price
     if(is_numeric($vegetable['Price']) == false || $vegetable['Price'] <=0){
         echo '<script>alert("Giá tiền phải là số > 0");window.location.href = "./new.php";</script>';
-        return;
-    }
-    //get eodextension format
-    $extension = getExtension($_FILES['image']['name']);
-    //check extension
-    if($extension != '.jpg' && $extension != '.png'){
-        echo '<script>alert("Hình ảnh phải là jpg hoặc png");window.location.href = "./new.php";</script>';
-        return;
-    }
-    //Check file size
-    if($_FILES['image']['size']/1048576.0 > 2){
-        echo '<script>alert("Kích thước hình ảnh phải <= 2mb");window.location.href = "./new.php";</script>';
         return;
     }
     
