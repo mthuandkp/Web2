@@ -38,7 +38,7 @@
     //Find empty in each data fields
     foreach($vegetable as $key=>$value){
         if(str_replace(" ","",$value) == ""){
-            echo '<script>alert("Chưa điền '.$key.'");/*window.location.href = "./new.php";*/</script>';
+            echo '<script>alert("Chưa điền '.$key.'");window.location.href = "./new.php";</script>';
             return;
         }
     }
